@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+>
+	<bean id="anotationBuilder" class="com.nifeng.jdbc.AnnotationBuilder">
+		<constructor-arg type="java.lang.String" value="com.nifeng.example.model" />
+	</bean>
+
+	<context:component-scan base-package="com.nifeng"></context:component-scan>
+
+	<!-- For mail settings and future properties files -->
+	<bean id="miniblogPropertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:dbconnect.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="applicationContextUtil" class="com.nifeng.jdbc.util.ApplicationContextUtil" />
+	<!-- JNDI DataSource for J2EE environments -->
+	<bean id="dataSourceRW" class="org.apache.commons.dbcp.BasicDataSource"	destroy-method="close">
+		<property name="driverClassName" value="${jdbc.connection.driver_class}" />
+		<property name="url" value="${jdbc.connection.url}" />
+		<property name="username" value="${jdbc.connection.username}" />
+		<property name="password" value="${jdbc.connection.password}" />
+		<property name="initialSize" value="20"/>
+		<property name="maxIdle" value="20"/>
+		<property name="minIdle" value="3"/>
+  		<property name="maxActive" value="40" />
+        <property name="maxWait" value="1000" /><!--超时等待时间1s  -->
+        <property name="timeBetweenEvictionRunsMillis" value="120000" />
+        <property name="minEvictableIdleTimeMillis" value="360000" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="60" />
+        <property name="poolPreparedStatements" value="true" />
+        <property name="defaultAutoCommit" value="true" />
+        <property name="testOnBorrow" value="true" />
+        <property name="testWhileIdle" value="true" />
+	</bean>
+
+	<!-- JNDI DataSource for J2EE environments -->
+	<bean id="dataSourceRO" class="org.apache.commons.dbcp.BasicDataSource"
+		  destroy-method="close">
+		<property name="driverClassName" value="${jdbc.connection.driver_class}" />
+		<property name="url" value="${slave.jdbc.connection.url}" />
+		<property name="username" value="${slave.jdbc.connection.username}" />
+		<property name="password" value="${slave.jdbc.connection.password}" />
+
+		<property name="initialSize" value="20"/>
+		<property name="maxIdle" value="20"/>
+		<property name="minIdle" value="3"/>
+		<property name="maxActive" value="50" />
+		<property name="maxWait" value="1000" /><!--超时等待时间1s  -->
+
+		<property name="timeBetweenEvictionRunsMillis" value="120000" />
+		<property name="minEvictableIdleTimeMillis" value="360000" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="60" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testWhileIdle" value="true" />
+	</bean>
+
+
+
+
+	
+</beans>
