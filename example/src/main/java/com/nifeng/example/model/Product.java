@@ -1,7 +1,6 @@
 package com.nifeng.example.model;
 
-import com.nifeng.jdbc.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import net.fengni.jdbc.annotation.*;
 
 /**
  * Created by Administrator on 2015/12/23.

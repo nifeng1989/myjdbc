@@ -1,7 +1,7 @@
 package com.nifeng.example.model;
 
-import com.nifeng.jdbc.annotation.*;
-import com.nifeng.jdbc.shard.DefaultShardRule;
+import net.fengni.jdbc.annotation.*;
+import net.fengni.jdbc.shard.DefaultShardRule;
 
 /**
  * Created by Administrator on 2015/9/3.
