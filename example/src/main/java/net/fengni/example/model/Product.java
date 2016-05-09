@@ -1,4 +1,4 @@
-package com.nifeng.example.model;
+package net.fengni.example.model;
 
 import net.fengni.jdbc.annotation.*;
 

@@ -8,10 +8,10 @@
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
 >
 	<bean id="anotationBuilder" class="net.fengni.jdbc.AnnotationBuilder">
-		<constructor-arg type="java.lang.String" value="com.nifeng.example.model" />
+		<constructor-arg type="java.lang.String" value="net.fengni.example.model" />
 	</bean>
 
-	<context:component-scan base-package="com.nifeng"></context:component-scan>
+	<context:component-scan base-package="net.fengni"></context:component-scan>
 
 	<!-- For mail settings and future properties files -->
 	<bean id="miniblogPropertyConfigurer"

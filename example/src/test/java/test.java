@@ -1,7 +1,7 @@
-import com.nifeng.example.dao.ProductDao;
-import com.nifeng.example.dao.UserDao;
-import com.nifeng.example.model.Product;
-import com.nifeng.example.model.User;
+import net.fengni.example.dao.ProductDao;
+import net.fengni.example.dao.UserDao;
+import net.fengni.example.model.Product;
+import net.fengni.example.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

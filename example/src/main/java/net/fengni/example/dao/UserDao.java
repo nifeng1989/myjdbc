@@ -1,6 +1,6 @@
-package com.nifeng.example.dao;
+package net.fengni.example.dao;
 
-import com.nifeng.example.model.User;
+import net.fengni.example.model.User;
 import net.fengni.jdbc.ShardBaseDao;
 import org.springframework.stereotype.Repository;
 
