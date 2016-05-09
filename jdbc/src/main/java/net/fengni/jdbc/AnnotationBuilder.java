@@ -3,6 +3,7 @@ package net.fengni.jdbc;
 import net.fengni.jdbc.annotation.*;
 import net.fengni.jdbc.shard.IShardRule;
 import net.fengni.jdbc.util.CommonUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.lang.reflect.Field;
@@ -41,9 +42,11 @@ public class AnnotationBuilder {
 
     public void parseAnnotation(Class cls) throws Exception {
         Table table = (Table) cls.getAnnotation(Table.class);
-        String tableName = cls.getSimpleName();
+        String tableName;
         if (table != null) {
             tableName = table.value();
+        } else {
+            tableName = cls.getSimpleName().toLowerCase();
         }
         AbstractEntityInfo entityInfo;
         Shard shard = (Shard) cls.getAnnotation(Shard.class);
@@ -137,7 +140,7 @@ public class AnnotationBuilder {
         deleteSB.append("delete from ").append(entityInfo.getTable()).append(" where ").append(entityInfo.getFieldColumnMap().get(entityInfo.getPrimaryKeyField())).append("=:").append(entityInfo.getPrimaryKeyField());
         entityInfo.setDeleteSql(deleteSB.toString());
 
-        selectSB.delete(selectSB.length()-1,selectSB.length());
+        selectSB.delete(selectSB.length() - 1, selectSB.length());
         selectSB.append(" from ").append(entityInfo.getTable()).append(" where ").append(entityInfo.getFieldColumnMap().get(entityInfo.getPrimaryKeyField())).append("=:").append(entityInfo.getPrimaryKeyField());
         entityInfo.setSelectSql(selectSB.toString());
     }

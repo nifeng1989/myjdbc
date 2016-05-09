@@ -1,9 +1,11 @@
 package net.fengni.jdbc.query;
 
+import java.io.Serializable;
+
 /**
  *查询条件
  */
-public class Condition {
+public class Condition implements Serializable {
 
     /**
      * 属性比较类型.

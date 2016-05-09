@@ -26,6 +26,9 @@ public class Page<T> {
 	protected boolean countCache = true;
 	protected int countCacheMax = 2000;
 
+	protected List<Order> orderList = new ArrayList<Order>();
+	protected List<Condition> conditionList = new ArrayList<Condition>();
+
 	// 构造函数
 
 	public Page() {
@@ -204,6 +207,28 @@ public class Page<T> {
     public void setCountCacheMax(int countCacheMax) {
         this.countCacheMax = countCacheMax;
     }
-	
-	
+
+	public boolean isAutoCountFromCache() {
+		return autoCountFromCache;
+	}
+
+	public void setAutoCountFromCache(boolean autoCountFromCache) {
+		this.autoCountFromCache = autoCountFromCache;
+	}
+
+	public List<Order> getOrderList() {
+		return orderList;
+	}
+
+	public void setOrderList(List<Order> orderList) {
+		this.orderList = orderList;
+	}
+
+	public List<Condition> getConditionList() {
+		return conditionList;
+	}
+
+	public void setConditionList(List<Condition> conditionList) {
+		this.conditionList = conditionList;
+	}
 }
