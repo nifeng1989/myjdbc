@@ -120,4 +120,35 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>nexus-releases</name>
+            <url>http://123.56.85.14:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus-snapshots</name>
+            <url>http://123.56.85.14:8081/nexus/content/repositories/snapshots</url>
+            <!--<uniqueVersion>true</uniqueVersion>-->
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Public Repository</name>
+            <url>http://123.56.85.14:8081/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://123.56.85.14:8081/nexus/content/groups/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>interval:180</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
 </project>
