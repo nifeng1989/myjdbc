@@ -27,17 +27,6 @@
         <common-httpclient-version>3.1</common-httpclient-version>
         <main.version>1.0-SNAPSHOT</main.version>
     </properties>
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>http://repo1.maven.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <dependencies>
         <!--Spring dependency-->
         <dependency>
